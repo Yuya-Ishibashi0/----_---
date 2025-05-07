@@ -140,7 +140,6 @@ body {
 /* ホームページ */
 .home-container {
   text-align: center;
-  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -206,7 +205,6 @@ body {
 
 /* イベント作成フォーム */
 .create-event-container {
-  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -431,7 +429,6 @@ body {
 
 /* イベントページ */
 .event-page-container {
-  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -540,7 +537,6 @@ body {
 
 /* 参加者フォーム */
 .participant-form-container {
-  max-width: 600px;
   margin: 0 auto;
 }
 
