@@ -7,8 +7,7 @@
 
 ## デモ
 
-ライブデモ: https://your-vercel-deployment-url.vercel.app  
-※ 実際のデプロイ URL に置き換えてください
+ライブデモ:[https://testapp-niujn2s1y-greennote097-gmailcoms-projects.vercel.app/](https://testapp-niujn2s1y-greennote097-gmailcoms-projects.vercel.app/)
 
 ---
 
