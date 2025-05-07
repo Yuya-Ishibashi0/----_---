@@ -57,6 +57,8 @@ body {
 }
 
 /* レスポンシブデザイン */
+
+/* 小画面対応 */
 @media (max-width: 768px) {
   .app-content {
     padding: 1rem;
@@ -589,6 +591,8 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   background-color: white;
+  /* 画像が横に伸びないようにする */
+  flex-shrink: 0;
 }
 
 .option-btn.available {
@@ -634,6 +638,8 @@ body {
 }
 
 /* レスポンシブデザイン */
+
+/* 小画面対応 */
 @media (max-width: 768px) {
   .app-content {
     padding: 1rem;

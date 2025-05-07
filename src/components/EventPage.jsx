@@ -66,7 +66,10 @@ const EventPage = () => {
 
   return (
     <div className="event-page-container">
-      <h2>{event.name}</h2>
+      <div className="event-header">
+        <h2>{event.name}</h2>
+        <Link to="/" className="home-button">ホームに戻る</Link>
+      </div>
       {event.description && <p className="event-description">{event.description}</p>}
       
       <div className="event-actions">
@@ -82,7 +85,32 @@ const EventPage = () => {
         <h3>候補日と参加者の回答</h3>
         
         {event.participants.length === 0 ? (
-          <p>まだ参加者はいません。</p>
+          <div>
+            <p>まだ参加者はいません。</p>
+            <div className="availability-table-container">
+              <table className="availability-table">
+                <thead>
+                  <tr>
+                    <th>候補日</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {event.dates.map((date, index) => {
+                    const dateParts = date.split(' ')[0].split('/');
+                    const timeInfo = date.split(' ')[1] || '';
+                    const formattedDate = dateParts.length === 3 ? 
+                      `${dateParts[0]}年${dateParts[1]}月${dateParts[2]}日 ${timeInfo}` : 
+                      date;
+                    return (
+                      <tr key={index}>
+                        <td>{formattedDate}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
         ) : (
           <div className="availability-table-container">
             <table className="availability-table">

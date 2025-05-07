@@ -24,7 +24,38 @@ const CreateEvent = () => {
   const handleAddDate = () => {
     if (selectedDate && timeInput) {
       const formattedDate = `${selectedDate} ${timeInput}`;
-      setDates([...dates, formattedDate]);
+      
+      // 日付を追加して昇順にソート
+      const newDates = [...dates, formattedDate].filter(d => d.trim());
+      
+      // 日付でソート
+      newDates.sort((a, b) => {
+        // 空の文字列は最後に
+        if (!a.trim()) return 1;
+        if (!b.trim()) return -1;
+        
+        // 日付部分を取得
+        const dateA = a.split(' ')[0].split('/');
+        const dateB = b.split(' ')[0].split('/');
+        
+        // 年/月/日の形式でソート
+        if (dateA.length >= 3 && dateB.length >= 3) {
+          // 年を比較
+          if (dateA[0] !== dateB[0]) {
+            return dateA[0] - dateB[0];
+          }
+          // 月を比較
+          if (dateA[1] !== dateB[1]) {
+            return dateA[1] - dateB[1];
+          }
+          // 日を比較
+          return dateA[2] - dateB[2];
+        }
+        
+        return a.localeCompare(b);
+      });
+      
+      setDates(newDates);
       setSelectedDate('');
       // 時間はリセットせず、前回の設定を維持
     } else {
@@ -53,7 +84,38 @@ const CreateEvent = () => {
     
     // 日付を選択したら自動的に候補リストに追加
     const formattedDateWithTime = `${formattedDate} ${timeInput}`;
-    setDates([...dates, formattedDateWithTime]);
+    
+    // 日付を追加して昇順にソート
+    const newDates = [...dates, formattedDateWithTime].filter(d => d.trim());
+    
+    // 日付でソート
+    newDates.sort((a, b) => {
+      // 空の文字列は最後に
+      if (!a.trim()) return 1;
+      if (!b.trim()) return -1;
+      
+      // 日付部分を取得
+      const dateA = a.split(' ')[0].split('/');
+      const dateB = b.split(' ')[0].split('/');
+      
+      // 年/月/日の形式でソート
+      if (dateA.length >= 3 && dateB.length >= 3) {
+        // 年を比較
+        if (dateA[0] !== dateB[0]) {
+          return dateA[0] - dateB[0];
+        }
+        // 月を比較
+        if (dateA[1] !== dateB[1]) {
+          return dateA[1] - dateB[1];
+        }
+        // 日を比較
+        return dateA[2] - dateB[2];
+      }
+      
+      return a.localeCompare(b);
+    });
+    
+    setDates(newDates);
   };
 
   const handlePrevMonth = () => {
